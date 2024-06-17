@@ -1,3 +1,15 @@
+# Getting start with AngularCLI
+`npm i -g @angular/cli`
+
+  `-g` for global installation 
+
+
+# Getting started
+use the following commands to install the all dependencies
+
+`yarn install` || `npm install`
+
+
 # AngularTodo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
