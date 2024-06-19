@@ -12,5 +12,8 @@ import { NgFor } from '@angular/common';
 })
 export class AppComponent {
   title = 'angular-todo';
-  parentCounter!: number;
+  applyForProduct(productDetails: { category: string; title: string }) {
+    console.log('applyForProduct', productDetails);
+    alert(JSON.stringify(productDetails));
+  }
 }

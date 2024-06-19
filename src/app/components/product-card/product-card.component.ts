@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PRODUCT_DATA } from '../../../constants';
 import {
   NgClass,
@@ -15,13 +15,19 @@ import {
   imports: [NgIf, NgStyle, NgClass, NgSwitch, NgSwitchCase, NgSwitchDefault],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css',
+  outputs: ['apply'],
 })
 export class ProductCardComponent {
-  @Input({})
-  product = PRODUCT_DATA;
-  @Input({})
-  label: 'fast-selling' | 'limited-deal' = 'fast-selling';
+  @Input() product = PRODUCT_DATA;
+  @Input() label: 'fast-selling' | 'limited-deal' = 'fast-selling';
+  @Output() apply = new EventEmitter<{ category: string; title: string }>();
 
+  handleApply() {
+    this.apply.emit({
+      category: this.product.category,
+      title: this.product.title,
+    });
+  }
   ratingColor() {
     return {
       good: this.product.rating.rate <= 3,
