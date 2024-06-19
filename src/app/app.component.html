@@ -1,6 +1,7 @@
 <!-- <router-outlet /> -->
-<!-- <app-product-card/> -->
-<div>
-    <app-click-counter [(count)]="parentCounter"></app-click-counter>
-    parentCounter=>{{parentCounter}}
+<div class="flex justify-around gap-4">
+  <!-- <app-product-card *ngFor="let i of [1,2,3,4]"/> -->
+  @for (item of [1,2,3,4]; track $index) {
+    <app-product-card />
+  }
 </div>
