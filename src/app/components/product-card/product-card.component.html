@@ -3,11 +3,38 @@
       <img [src]="product.image" [alt]="product.title">
     </div>
     <div class="product-info">
-      <div class="product-text">
+        <div class="product-text">
+            <div [ngSwitch]="label">
+                <span *ngSwitchCase="'fast-selling'" class="chip">
+                    Selling Out
+                </span>
+                <span *ngSwitchCase="'limited-deal'" class="chip">
+                    Fresh Deal 
+                </span>
+                <span *ngSwitchDefault class="chip">
+                    Trending Hot
+                </span>
+            </div>
         <h1>{{product.title}}</h1>
         <h2>{{product.category}}</h2>
         <p>{{product.description}}</p>
       </div>
+      <p class="rating-wrapper" *ngIf="product.rating.rate>2">
+          Rating: 
+          <b class="rating" style="padding-right:20px ;"
+          [class.good-emoji]="product.rating.rate<=3"
+          [class.excellent-emoji]="product.rating.rate>3"
+          [ngClass]="ratingColor()"
+          >
+          {{product.rating.rate}}/5
+        </b>
+        Reviews: 
+        <b class="review"
+        [style]="{color:product.rating.rate<=3?'red':'green'}"
+        >
+              {{product.rating.count}}
+          </b>
+      </p>
       <p class="product-price-tag">
           <span>{{product.price}}</span> <sub style="padding: 0 4px ;">INR</sub>
       </p>
