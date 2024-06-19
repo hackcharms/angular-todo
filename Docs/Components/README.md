@@ -81,4 +81,9 @@ img{
   <img src="profile-photo.jpg" alt="Your profile photo">
 ```
 
+
+## code showcase
+  - create a product card using single file
+  - Now how can we use these all using seprate style/template files
+
 [Official Documentation](https://angular.dev/guide/components)
