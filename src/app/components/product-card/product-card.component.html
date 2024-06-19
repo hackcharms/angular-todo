@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <div class="product-img">
+      <img [src]="product.image" [alt]="product.title">
+    </div>
+    <div class="product-info">
+      <div class="product-text">
+        <h1>{{product.title}}</h1>
+        <h2>{{product.category}}</h2>
+        <p>{{product.description}}</p>
+      </div>
+      <p class="product-price-tag">
+          <span>{{product.price}}</span> <sub style="padding: 0 4px ;">INR</sub>
+      </p>
+      <div class="product-price-btn">
+        <button type="button">View Details</button>
+      </div>
+    </div>
+  </div>
+
