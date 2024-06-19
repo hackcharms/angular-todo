@@ -20,10 +20,15 @@ import {
 export class ProductCardComponent {
   @Input() product = PRODUCT_DATA;
   @Input() label: 'fast-selling' | 'limited-deal' = 'fast-selling';
-  @Output() apply = new EventEmitter<{ category: string; title: string }>();
+  @Output() apply = new EventEmitter<{
+    id: number;
+    category: string;
+    title: string;
+  }>();
 
   handleApply() {
     this.apply.emit({
+      id: this.product.id,
       category: this.product.category,
       title: this.product.title,
     });

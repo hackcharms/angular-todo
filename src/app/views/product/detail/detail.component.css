@@ -1,0 +1,9 @@
+.max-size-50{
+    max-width: 500px;
+    max-height: 500px;
+}
+.max-w-lg{
+    /* display:flex; */
+    max-width: 1024px;
+    margin: auto;
+}
