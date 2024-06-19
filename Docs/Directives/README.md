@@ -56,7 +56,8 @@ Directives are like custom instructions that you can add to HTML elements to mod
 
 ## code showcase
   - render product card multiple times using `*ngFor`
-  - hide/ show rattings using `*ngIf`
-  - conditional styling/classes based on rattings.
+  - hide/ show ratings using `*ngIf`
+  - conditional styling/classes based on ratings.
+  - [Control flow](https://angular.dev/guide/templates/control-flow) for same king of use case.
   - demonstrate event binding `(click)="showAlert"`
   - ngModel use case and why it is used as `[(*ngModel)]`
