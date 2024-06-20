@@ -1,9 +1,9 @@
 # [Directives](https://angular.dev/guide/directives)
-## What are components?
+## What are Directive?
 Directives are like custom instructions that you can add to HTML elements to modify their behavior or appearance. They act as a bridge between the HTML templates and the underlying logic.
 - ### Component Directives:
   These are special directives that define a reusable component with its own template, styles, and logic. They are essentially blueprints for creating custom HTML elements.
-- ### Aribute directives:
+- ### Attribute directives:
      Attribute directives listen to and modify the behavior of other HTML elements, attributes, properties, and components.
      directives - `NgClass`, `NgStyle` and `NgModel`
      
