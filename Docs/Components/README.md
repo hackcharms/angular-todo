@@ -81,9 +81,108 @@ img{
   <img src="profile-photo.jpg" alt="Your profile photo">
 ```
 
-
-## code showcase
+## Code showcase
   - create a product card using single file
   - Now how can we use these all using seprate style/template files
 
+## Understanding binding
+In an Angular template, a binding creates a live connection between a part of the UI created from a template (a DOM element, directive, or component) and the model (the component instance to which the template belongs). This connection can be used to synchronize the view with the model, to notify the model when an event or user action takes place in the view, or both. Angular's Change Detection algorithm is responsible for keeping the view and the model in sync.
+
+### Examples of binding include:
+- **text interpolations**
+- **property binding**
+- **event binding**
+- **two-way binding**
+  
+Bindings always have two parts: a target which will receive the bound value, and a template expression which produces a value from the model.
+
+### Text Interpolations
+Interpolation refers to embedding expressions into marked up text. By default, interpolation uses the double curly braces `{{` and `}}` as delimiters.
+```ts
+<h4>{{ recommended }}</h4>
+```
+### Property binding
+Property binding in Angular helps you set values for properties of HTML elements or directives. Use property binding to do things such as toggle button features, set paths programmatically, and share values between components.
+
+To bind to an element's property, enclose it in square brackets, [], which identifies the property as a target property.
+eg-
+```ts
+<img alt="item 2" [src]="itemImageUrl2">
+  ```
+### Attribute binding
+Attribute binding syntax resembles property binding, but instead of an element property between brackets, you precede the name of the attribute with the prefix attr, followed by a dot. Then, you set the attribute value with an expression that resolves to a string.
+```ts
+<!-- create and set an aria attribute for assistive technology -->
+  <button type="button" [attr.aria-label]="actionName">{{ actionName }} with Aria</button>
+  ```
+
+## Class and style binding
+Use class and style bindings to add and remove CSS class names from an element's class attribute and to set styles dynamically.
+
+### Binding to a single CSS class
+```ts
+[class.sale]="onSale" 
+```
+Angular adds the class when the bound expression, onSale is truthy, and it removes the class when the expression is falsy
+
+### Multi-class binding
+ - space seprated class string 
+ - Record - {sale:onSale} sale class applies if onSale is truthy
+ - String Array
+
+
+### Binding to a single style
+To create a single style binding, use the prefix style followed by a dot and the name of the CSS style.
+For example, to set the width style, type the following: 
+`[style.width]="width"`
+
+ - To write a style in dash-case, type the following:
+ ```ts 
+ <nav [style.background-color]="expression"></nav>
+ ```
+- To write a style in camelCase, type the following:
+ ```ts
+<nav [style.backgroundColor]="expression"></nav>
+```
+### Binding to multiple styles
+- A string list of styles such as `"width: 100px; height: 100px; background-color: cornflowerblue;"`.
+- An object with style names as the keys and style values as the values, such as `{width: '100px', height: '100px', backgroundColor: 'cornflowerblue'}`.
+  
+
+  **Note:** binding an `array` to `[style]` is not supported.
+
+## Event binding
+Event binding lets you listen for and respond to user actions such as keystrokes, mouse movements, clicks, and touches.
+
+To bind to an event you use the Angular event binding syntax. This syntax consists of a target event name within parentheses to the left of an equal sign, and a quoted template statement to the right.
+
+Create the following example; the target event name is click and the template statement is onSave().
+```ts
+<button (click)="onSave()">Save</button>
+```
+<img src="https://angular.dev/assets/images/guide/template-syntax/syntax-diagram.svg" alt="angular event statement"/>
+
+### [Binding to keyboard events](https://angular.dev/guide/templates/event-binding#binding-to-keyboard-events)
+
+
+## [Two-way binding](https://angular.dev/guide/templates/two-way-binding)
+Two-way binding combines `property` binding with `event` binding:
+```ts
+// parent component
+  <app-click-counter [(count)]="parentCounter"></app-click-counter>
+```
+```ts
+// component.ts
+export class ClickCounterComponent {
+  @Input() count = 0;
+  @Output() countChange = new EventEmitter<number>();
+  decrement() {
+    if (this.count > 0) this.countChange.emit(this.count - 1);
+  }
+  increment() {
+    console.log('increment', (this.count || 0) + 1);
+    this.countChange.emit((this.count || 0) + 1);
+  }
+}
+```
 [Official Documentation](https://angular.dev/guide/components)
